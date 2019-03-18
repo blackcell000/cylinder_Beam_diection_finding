@@ -352,14 +352,24 @@ figure(1)
 plot(theta_test);
 h=[figure(1)];
 theta_f=theta_test;
-for n=1:test_num
-    [max_theta yy_(1,n)]=max(theta_f);
-    theta_f(1,yy_(1,n))=0;
+
+% for n=1:test_num
+%     [max_theta yy_(1,n)]=max(theta_f);
+%     theta_f(1,yy_(1,n))=0;
+% end
+test_num_=1;
+while true
+     [max_theta yy_(1,test_num_)]=max(theta_f);
+     theta_f(1,yy_(1,test_num_))=0;
+     if max(theta_f)<1
+         break
+     end
+     test_num_=test_num_+1;
 end
 
 flag_num=3;
 boshu_num=str2double(get(handles.geshu,'String'));
-for n=1:test_num
+for n=1:test_num_
     yy=yy_(1,n);
     for flag=1:flag_num
         if yy+flag-round(flag_num/2)<=0
