@@ -347,9 +347,9 @@ for n=1:test_num
         theta_test(1,:)=theta_test(1,:)+ans_T(angle_target/bujin_+1,:);
     end
 end
-
+boshu_num=str2double(get(handles.geshu,'String'));
 figure(1)
-plot(theta_test);
+plot([0 : boshu_num-1]*360/boshu_num,theta_test);
 h=[figure(1)];
 theta_f=theta_test;
 
